@@ -7,10 +7,15 @@ RSpec.describe PagesController, type: :controller do
     end
   end
   
-  describe "GET #home" do
-    it "returns http success" do
-      get :home
+  describe 'GET #home' do
+    before { get :home }
+
+    it 'returns http success' do
       expect(response).to have_http_status(:success)
+    end
+
+    it 'assigns players to @players' do
+      expect(assigns(:players)).to all(be_a(Player))
     end
   end
 end

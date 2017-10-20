@@ -1,4 +1,14 @@
 .row.medium-unstack
-  .columns
-    %h1 Pages#home
-    %p Find me in app/views/pages/home.html.haml
+  .columns.medium-4
+    %h5 Red corner
+    %ul.red-corner.no-bullet
+      = render partial: 'players/player', collection: @players
+  .columns.medium-4
+    .tennis-table
+      .tennis-table__red
+      .tennis-table__blue
+  .columns.medium-4
+    %h5 Blue corner
+    %ul.blue-corner.no-bullet
+      = render partial: 'players/player', collection: @players
+    
