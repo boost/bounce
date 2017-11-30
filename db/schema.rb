@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130205010) do
+ActiveRecord::Schema.define(version: 20171130205729) do
 
   create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "players_teams", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "team_id", null: false
+    t.bigint "player_id", null: false
+    t.index ["player_id", "team_id"], name: "index_players_teams_on_player_id_and_team_id"
+    t.index ["team_id", "player_id"], name: "index_players_teams_on_team_id_and_player_id"
   end
 
   create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

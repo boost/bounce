@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Team, type: :model do
-  describe 'validations' do
+  context 'validations' do
+    it { should validate_presence_of :name }
   end
 
-  describe 'relationships' do
+  context 'relationships' do
+    it { have_and_belong_to_many(:players) }
   end
 end
