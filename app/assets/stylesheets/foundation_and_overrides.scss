@@ -9,6 +9,15 @@
 
 // We include everything by default.  To slim your CSS, remove components you don't use.
 
+// 1. Global
+// ---------
+$body-background: $alabaster;
+$body-font-family: 'ProximaNova-Regular', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+
+// 4. Base Typography
+// ------------------
+$header-font-family: 'ProximaNova-Bold', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+
 @include foundation-global-styles;
 // @include foundation-grid;
 // @include foundation-grid;

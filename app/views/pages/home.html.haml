@@ -1,8 +1,9 @@
 .row.medium-unstack
   .columns.medium-4
-    %h5 Players
-    %ul.red-corner.no-bullet
-      = render partial: 'players/player', collection: @players
+    .players
+      %h5 Players
+      %ul.no-bullet
+        = render partial: 'players/player', collection: @players
   .columns
     .tennis-table
       .tennis-table__red

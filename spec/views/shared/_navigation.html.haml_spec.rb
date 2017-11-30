@@ -5,7 +5,7 @@ RSpec.describe 'shared/_navigation.html.haml', type: :view do
     it 'displays the elements' do
       render
 
-      expect(rendered).to match(/Ping Pong/)
+      expect(rendered).to match(/Ping\/Pong/)
     end
   end
 end
