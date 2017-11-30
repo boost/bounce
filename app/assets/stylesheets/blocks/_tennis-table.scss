@@ -1,0 +1,22 @@
+.tennis-table {
+  @include element('side') {
+    padding: 5rem 0;
+    text-align: center;
+    // color: $white;
+    // background: $studio;
+    border: 2px solid $gallery;
+
+    a {
+      // color: $white;
+      margin-right: 1rem;
+    }
+
+    .switch {
+      margin-top: 2rem;
+    }
+  }
+
+  @include element('action') {
+    margin-top: 1rem;
+  }
+}

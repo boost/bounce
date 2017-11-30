@@ -1,11 +1,41 @@
 .row.medium-unstack
-  .columns.medium-4
-    .players
-      %h5 Players
+  .columns.medium-2
+    .players#team-a-players
+      %h5 Team A
       %ul.no-bullet
         = render partial: 'players/player', collection: @players
   .columns
-    .tennis-table
-      .tennis-table__red
-      .tennis-table__blue
-    
+    = form_tag do
+      .tennis-table
+        .row.medium-unstack
+          .columns.align-self-middle
+            .tennis-table__side#tennis-table-side-a
+              %h4 Team A
+              = link_to 'Brayden Gosse'
+              = link_to 'Nick Butler'
+              
+              .switch
+                = radio_button_tag :winner, :a, false, class: 'switch-input', required: true
+                = label_tag :winner_a, class: 'switch-paddle' do
+                  %span.show-for-sr Winner
+          .columns.align-self-middle
+            .tennis-table__side#tennis-table-side-b
+              %h4 Team B
+              = link_to 'Benedict Aluan'
+              = link_to 'Yar Htut'
+
+              .switch
+                = radio_button_tag :winner, :b, false, class: 'switch-input', required: true
+                = label_tag :winner_b, class: 'switch-paddle' do
+                  %span.show-for-sr Winner
+        
+        .row
+          .column
+            .tennis-table__action.text-center
+              = submit_tag 'Submit match', class: 'button large'
+              
+  .columns.medium-2
+    .players#team-b-players
+      %h5 Team B
+      %ul.no-bullet
+        = render partial: 'players/player', collection: @players
