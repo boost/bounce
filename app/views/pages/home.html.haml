@@ -1,34 +1,21 @@
 .row.medium-unstack
   .columns.medium-2
     .players#team-a-players
-      %h5 Team A
+      %h5 Winning Players
       %ul.no-bullet
         = render partial: 'players/player', collection: @players
   .columns
-    = form_tag do
+    = form_for @game do |f|
       .tennis-table
         .row.medium-unstack
           .columns.align-self-middle
             .tennis-table__side#tennis-table-side-a
-              %h4 Team A
-              = link_to 'Brayden Gosse'
-              = link_to 'Nick Butler'
-              
-              .switch
-                = radio_button_tag :winner, :a, false, class: 'switch-input', required: true
-                = label_tag :winner_a, class: 'switch-paddle' do
-                  %span.show-for-sr Winner
+              %h4 Winning Team
+
           .columns.align-self-middle
             .tennis-table__side#tennis-table-side-b
-              %h4 Team B
-              = link_to 'Benedict Aluan'
-              = link_to 'Yar Htut'
+              %h4 Losing Team
 
-              .switch
-                = radio_button_tag :winner, :b, false, class: 'switch-input', required: true
-                = label_tag :winner_b, class: 'switch-paddle' do
-                  %span.show-for-sr Winner
-        
         .row
           .column
             .tennis-table__action.text-center
@@ -36,6 +23,6 @@
               
   .columns.medium-2
     .players#team-b-players
-      %h5 Team B
+      %h5 Losing Players
       %ul.no-bullet
         = render partial: 'players/player', collection: @players

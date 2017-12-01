@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
-  resources :tables
+  resources :games
 end
