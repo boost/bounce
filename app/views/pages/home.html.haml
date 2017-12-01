@@ -5,13 +5,13 @@
       %ul.no-bullet
         = render partial: 'players/player', collection: @players
   .columns
-    = form_tag do
+    = form_for @game do |f|
       .tennis-table
         .row.medium-unstack
           .columns.align-self-middle
             .tennis-table__side#tennis-table-side-a
               %h4 Winning Team
-              
+
           .columns.align-self-middle
             .tennis-table__side#tennis-table-side-b
               %h4 Losing Team
