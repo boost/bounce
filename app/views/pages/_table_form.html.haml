@@ -1,0 +1,30 @@
+= form_for game do |game_form|
+  .tennis-table
+    .row.medium-unstack
+      .columns.align-self-middle
+        .tennis-table__side#tennis-table-winning-side{ 'data-player-count': 0 }
+          %h4 Winning Team
+
+          = game_form.fields_for :winner do |tf|
+            = tf.hidden_field :player_ids
+
+          .tennis-table__side__players
+            %ul.no-bullet
+              - game.winner.players.each do |player|
+                %li= player.name
+
+      .columns.align-self-middle
+        .tennis-table__side#tennis-table-losing-side{ 'data-player-count': 0 }
+          %h4 Losing Team
+
+          = game_form.fields_for :loser do |tf|
+            = tf.hidden_field :player_ids
+
+          .tennis-table__side__players
+            %ul.no-bullet
+              - game.loser.players.each do |player|
+                %li= player.name
+    .row
+      .column
+        .tennis-table__action.text-center
+          = submit_tag 'Submit match', class: 'button large'

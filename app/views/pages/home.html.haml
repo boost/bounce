@@ -1,28 +1,18 @@
 .row.medium-unstack
   .columns.medium-2
-    .players#team-a-players
+    .players#winning-players
       %h5 Winning Players
       %ul.no-bullet
-        = render partial: 'players/player', collection: @players
+        = render partial: 'players/player', collection: @players, locals: { winner: true }
+
   .columns
-    = form_for @game do |f|
-      .tennis-table
-        .row.medium-unstack
-          .columns.align-self-middle
-            .tennis-table__side#tennis-table-side-a
-              %h4 Winning Team
-
-          .columns.align-self-middle
-            .tennis-table__side#tennis-table-side-b
-              %h4 Losing Team
-
-        .row
-          .column
-            .tennis-table__action.text-center
-              = submit_tag 'Submit match', class: 'button large'
+    .table-form
+      = render partial: 'table_form', locals: { game: @game }
               
   .columns.medium-2
-    .players#team-b-players
+    .players#losing-players
       %h5 Losing Players
       %ul.no-bullet
-        = render partial: 'players/player', collection: @players
+        = render partial: 'players/player', collection: @players, locals: { winner: false }
+
+= render partial: 'recent_games'
