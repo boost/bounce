@@ -16,7 +16,8 @@
   { name: 'Rebecca Jones' },
   { name: 'Richard Matthews' },
   { name: 'Theo Paul' },
-  { name: 'Yar Htut' }
+  { name: 'Yar Htut' },
+  { name: 'Tim Wright' }
 ].each do |info|
   Player.find_or_create_by(info)
 end

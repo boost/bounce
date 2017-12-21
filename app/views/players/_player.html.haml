@@ -1,1 +1,4 @@
-%li= link_to player.name, '#'
+- if winner
+  %li= link_to player.name, add_winner_games_path(player), remote: true, method: :post
+- else
+  %li= link_to player.name, add_loser_games_path(player), remote: true, method: :post

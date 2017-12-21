@@ -26,11 +26,11 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'capybara', '~> 2.13'
-  gem 'poltergeist'
+  gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'pry-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'shoulda-matchers'
 end
 
