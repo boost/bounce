@@ -1,4 +1,7 @@
-- if winner
-  %li= link_to player.name, add_winner_games_path(player), remote: true, method: :post
-- else
-  %li= link_to player.name, add_loser_games_path(player), remote: true, method: :post
+- path = add_winner_games_path(player)
+- path = add_loser_games_path(player) unless winner
+
+%li
+  = link_to path, remote: true, method: :post do
+    = image_tag "#{player.first_name.downcase}"
+    %span= player.first_name

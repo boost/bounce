@@ -11,7 +11,9 @@
           .tennis-table__side__players
             %ul.no-bullet
               - game.winner.players.each do |player|
-                %li= player.name
+                %li
+                  = image_tag player.first_name.downcase
+                  %span= player.first_name
 
       .columns.align-self-middle
         .tennis-table__side#tennis-table-losing-side{ 'data-player-count': 0 }
@@ -23,7 +25,9 @@
           .tennis-table__side__players
             %ul.no-bullet
               - game.loser.players.each do |player|
-                %li= player.name
+                %li
+                  = image_tag player.first_name.downcase
+                  %span= player.first_name
     .row
       .column
         .tennis-table__action.text-center
