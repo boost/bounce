@@ -6,23 +6,23 @@ class Game < ApplicationRecord
   accepts_nested_attributes_for :loser
 
   def winner_attributes=(value)
-    teams = Team.by_player_ids(value['player_ids'])
+    teams = Team.by_player_ids(value[:player_ids].split(' '))
 
     if teams.any?
       self.winner = teams.first
     else
-      players = Player.find(value['player_ids'].split(' '))
+      players = Player.find(value[:player_ids].split(' '))
       self.winner = Team.create(players: players)
     end
   end
 
   def loser_attributes=(value)
-    teams = Team.by_player_ids(value['player_ids'])
+    teams = Team.by_player_ids(value[:player_ids].split(' '))
 
     if teams.any?
       self.loser = teams.first
     else
-      players = Player.find(value['player_ids'].split(' '))
+      players = Player.find(value[:player_ids].split(' '))
       self.loser = Team.create(players: players)
     end
   end
