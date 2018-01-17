@@ -1,0 +1,8 @@
+.top-teams
+  .row
+    .column
+      %h4 Top teams
+      
+      %table
+        %tbody
+          = render partial: 'games/game', collection: Game.all.reverse

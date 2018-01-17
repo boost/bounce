@@ -2,7 +2,7 @@
   .columns.medium-2
     .players#winning-players
       %h5 Winning Players
-      %ul.no-bullet
+      .players-container
         = render partial: 'players/player', collection: @players, locals: { winner: true }
 
   .columns
@@ -12,7 +12,5 @@
   .columns.medium-2
     .players#losing-players
       %h5 Losing Players
-      %ul.no-bullet
+      .players-container
         = render partial: 'players/player', collection: @players, locals: { winner: false }
-
-= render partial: 'recent_games'

@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     post '/add_winner/:id', to: 'games#add_winner', as: :add_winner, on: :collection
     post '/add_loser/:id', to: 'games#add_loser', as: :add_loser, on: :collection
   end
+
+  resources :stats, only: :index
 end

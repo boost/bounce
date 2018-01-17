@@ -1,7 +1,5 @@
 - path = add_winner_games_path(player)
 - path = add_loser_games_path(player) unless winner
 
-%li
-  = link_to path, remote: true, method: :post do
-    = image_tag "#{player.first_name.downcase}"
-    %span= player.first_name
+= link_to path, remote: true, method: :post, title: player.first_name do
+  = image_tag "#{player.first_name.downcase}", alt: player.first_name, title: player.first_name
