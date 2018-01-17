@@ -9,9 +9,8 @@
             = tf.hidden_field :player_ids
 
           .tennis-table__side__players
-            %ul.no-bullet
-              - game.winner.players.each do |player|
-                %li= player.name
+            - game.winner.players.each do |player|
+              = image_tag player.first_name.downcase, title: player.first_name
 
       .columns.align-self-middle
         .tennis-table__side#tennis-table-losing-side{ 'data-player-count': 0 }
@@ -21,9 +20,8 @@
             = tf.hidden_field :player_ids
 
           .tennis-table__side__players
-            %ul.no-bullet
-              - game.loser.players.each do |player|
-                %li= player.name
+            - game.loser.players.each do |player|
+              = image_tag player.first_name.downcase, title: player.first_name
     .row
       .column
         .tennis-table__action.text-center

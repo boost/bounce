@@ -16,6 +16,7 @@
 // Variables
 @import 'partials/colors';
 @import 'partials/typography';
+@import 'partials/helpers';
 
 // Third-party
 @import 'foundation_and_overrides';
@@ -29,3 +30,5 @@
 
 // Blocks
 @import 'blocks/tennis-table';
+@import 'blocks/players';
+@import 'blocks/recent-games';

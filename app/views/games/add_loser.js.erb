@@ -1,8 +1,8 @@
 $('.table-form').html('');
 $('.table-form').html("<%= j render partial: 'pages/table_form', locals: { game: @game } %>");
 
-$('#winning-players > ul').html('');
-$('#winning-players > ul').html("<%= j render partial: 'players/player', collection: @players, locals: { winner: true } %>");
+$('#winning-players > .players-container').html('');
+$('#winning-players > .players-container').html("<%= j render partial: 'players/player', collection: @players, locals: { winner: true } %>");
 
-$('#losing-players > ul').html('');
-$('#losing-players > ul').html("<%= j render partial: 'players/player', collection: @players, locals: { winner: false } %>");
+$('#losing-players > .players-container').html('');
+$('#losing-players > .players-container').html("<%= j render partial: 'players/player', collection: @players, locals: { winner: false } %>");

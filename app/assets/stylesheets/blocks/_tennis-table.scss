@@ -1,9 +1,13 @@
 .tennis-table {
+  img {
+    width: 32px;
+    margin-bottom: .5rem;
+  }
+
   @include element('side') {
     padding: 5rem 0;
     text-align: center;
-    // color: $white;
-    // background: $studio;
+    min-height: 250px;
     border: 2px solid $gallery;
 
     a {

@@ -7,20 +7,28 @@ class GamesController < ApplicationController
 
     if @game.save
       reset_session
-      redirect_to root_path
+      redirect_to stats_path
     end
   end
 
   def add_winner
-    session[:winner_ids] << @player.id
-    @players = Player.all.reject { |p| [*session[:winner_ids], *session[:loser_ids]].include?(p.id) }
-    update_player_ids_session
+    if session[:winner_ids].count < 2
+      session[:winner_ids] << @player.id
+      @players = Player.all.reject { |p| [*session[:winner_ids], *session[:loser_ids]].include?(p.id) }
+      update_player_ids_session
+    else
+      render :js => "alert('You cannot have more than 2 players. Duh');" 
+    end
   end
 
   def add_loser
-    session[:loser_ids] << @player.id
-    @players = Player.all.reject { |p| [*session[:winner_ids], *session[:loser_ids]].include?(p.id) }
-    update_player_ids_session
+    if session[:loser_ids].count < 2
+      session[:loser_ids] << @player.id
+      @players = Player.all.reject { |p| [*session[:winner_ids], *session[:loser_ids]].include?(p.id) }
+      update_player_ids_session
+    else
+      render :js => "alert('You cannot have more than 2 players. Duh');" 
+    end
   end
 
   private

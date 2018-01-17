@@ -4,4 +4,8 @@ class Player < ApplicationRecord
 
   # Relationships
   has_and_belongs_to_many :teams
+
+  def first_name
+    name.split(' ').first
+  end
 end
