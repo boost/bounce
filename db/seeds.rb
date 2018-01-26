@@ -1,7 +1,6 @@
 [
   { name: 'Andy Gray' },
   { name: 'Benedict Aluan' },
-  { name: 'Bonnie Slater' },
   { name: 'Brayden Gosse' },
   { name: 'Dan Henton' },
   { name: 'Edwin Rozario' },
