@@ -1,6 +1,6 @@
 %tr
   %td
-    = "#{game.winner.player_names} won against #{game.loser.player_names}"
+    = "🏆 #{game.winner.player_names} won against 🥔 #{game.loser.player_names}"
   %td
     .text-right
       = link_to 'Delete', game, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button small alert'
