@@ -11,6 +11,13 @@ class GamesController < ApplicationController
     end
   end
 
+  def destroy
+    @game = Game.find(params[:id])
+    @game.destroy
+
+    redirect_to stats_path
+  end
+
   def add_winner
     if session[:winner_ids].count < 2
       session[:winner_ids] << @player.id
