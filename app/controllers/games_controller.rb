@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
-  before_action :find_player, only: [:add_winner, :add_loser]
-  before_action :set_game, only: [:add_winner, :add_loser]
+  before_action :find_player, only: [:add_winner, :add_loser, :remove_winner, :remove_loser]
+  before_action :set_game, only: [:add_winner, :add_loser, :remove_winner, :remove_loser]
 
   def create
     @game = Game.new(game_params)
@@ -17,7 +17,7 @@ class GamesController < ApplicationController
       @players = Player.all.reject { |p| [*session[:winner_ids], *session[:loser_ids]].include?(p.id) }
       update_player_ids_session
     else
-      render :js => "alert('You cannot have more than 2 players. Duh');" 
+      render :js => "alert('You cannot have more than 2 players');" 
     end
   end
 
@@ -27,8 +27,20 @@ class GamesController < ApplicationController
       @players = Player.all.reject { |p| [*session[:winner_ids], *session[:loser_ids]].include?(p.id) }
       update_player_ids_session
     else
-      render :js => "alert('You cannot have more than 2 players. Duh');" 
+      render :js => "alert('You cannot have more than 2 players');" 
     end
+  end
+
+  def remove_winner
+    session[:winner_ids].delete(@player.id)
+    @players = Player.all.reject { |p| [*session[:winner_ids], *session[:loser_ids]].include?(p.id) }
+    update_player_ids_session
+  end
+
+  def remove_loser
+    session[:loser_ids].delete(@player.id)
+    @players = Player.all.reject { |p| [*session[:winner_ids], *session[:loser_ids]].include?(p.id) }
+    update_player_ids_session
   end
 
   private

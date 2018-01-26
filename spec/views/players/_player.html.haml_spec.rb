@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'players/_player.html.haml', type: :view do
   before do
-    @player = create(:player)
+    @player = create(:player, name: 'Benedict')
     render partial: 'players/player.html.haml', collection: Player.all, locals: { winner: true }
   end
 

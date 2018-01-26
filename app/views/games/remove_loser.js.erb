@@ -1,0 +1,8 @@
+$('.table-form').html('');
+$('.table-form').html("<%= j render partial: 'pages/table_form', locals: { game: @game } %>");
+
+$('#winning-players > .players-container').html('');
+$('#winning-players > .players-container').html("<%= j render partial: 'players/player', collection: @players, locals: { winner: true } %>");
+
+$('#losing-players > .players-container').html('');
+$('#losing-players > .players-container').html("<%= j render partial: 'players/player', collection: @players, locals: { winner: false } %>");

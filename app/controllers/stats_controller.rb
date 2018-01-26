@@ -1,4 +1,3 @@
 class StatsController < ApplicationController
-  def index
-  end
+  def index; end
 end
