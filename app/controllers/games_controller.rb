@@ -7,7 +7,7 @@ class GamesController < ApplicationController
 
     if @game.save
       reset_session
-      redirect_to stats_path
+      redirect_to root_path
     end
   end
 
@@ -15,7 +15,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @game.destroy
 
-    redirect_to stats_path
+    redirect_to root_path
   end
 
   def add_winner

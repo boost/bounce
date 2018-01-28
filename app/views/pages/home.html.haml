@@ -14,3 +14,11 @@
       %h5 Losing Players
       .players-container
         = render partial: 'players/player', collection: @players, locals: { winner: false }
+
+.stats
+  .row.medium-unstack
+    .columns
+      = render partial: 'stats/recent_games'
+  .row.medium-unstack
+    .columns
+      = render partial: 'stats/top_teams'

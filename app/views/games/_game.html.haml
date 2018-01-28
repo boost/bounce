@@ -1,6 +1,7 @@
 %tr
   %td
     = "🏆 #{game.winner.player_names} won against 🥔 #{game.loser.player_names}"
+    %span.subheader= "#{time_ago_in_words(game.created_at)} ago"
   %td
     .text-right
       = link_to 'Delete', game, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button small alert'

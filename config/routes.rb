@@ -7,6 +7,4 @@ Rails.application.routes.draw do
     post '/remove_winner/:id', to: 'games#remove_winner', as: :remove_winner, on: :collection
     post '/remove_loser/:id', to: 'games#remove_loser', as: :remove_loser, on: :collection
   end
-
-  resources :stats, only: :index
 end
