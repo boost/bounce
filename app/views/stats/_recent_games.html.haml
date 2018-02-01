@@ -5,4 +5,4 @@
       
       %table
         %tbody
-          = render partial: 'games/game', collection: Game.all.reverse
+          = render partial: 'games/game', collection: Game.all.limit(10).reverse
