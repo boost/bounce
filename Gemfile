@@ -21,6 +21,10 @@ gem 'foundation-rails'
 gem 'haml-rails'
 gem 'jquery-rails'
 
+# Authentication
+gem 'omniauth'
+gem 'omniauth-slack'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

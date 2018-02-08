@@ -1,19 +1,20 @@
-.row.medium-unstack
-  .columns.medium-2
-    .players#winning-players
-      %h5 Winning Players
-      .players-container
-        = render partial: 'players/player', collection: @players, locals: { winner: true }
+- if current_player
+  .row.medium-unstack
+    .columns.medium-2
+      .players#winning-players
+        %h5 Winning Players
+        .players-container
+          = render partial: 'players/player', collection: @players, locals: { winner: true }
 
-  .columns
-    .table-form
-      = render partial: 'table_form', locals: { game: @game }
-              
-  .columns.medium-2
-    .players#losing-players
-      %h5 Losing Players
-      .players-container
-        = render partial: 'players/player', collection: @players, locals: { winner: false }
+    .columns
+      .table-form
+        = render partial: 'table_form', locals: { game: @game }
+                
+    .columns.medium-2
+      .players#losing-players
+        %h5 Losing Players
+        .players-container
+          = render partial: 'players/player', collection: @players, locals: { winner: false }
 
 .stats
   .row.medium-unstack

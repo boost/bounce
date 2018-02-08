@@ -5,4 +5,10 @@
         = link_to t('app.title'), root_path, class: 'logo'
     .columns
       %ul.menu.align-right
-        %li= link_to 'Suggestions?', 'https://github.com/boost/bounce/issues/new', class: 'strong', target: '_blank'
+        - if current_player
+          %li
+            = link_to 'Sign out', sign_out_path, method: :delete, class: 'strong button secondary hollow'
+        - else
+          %li
+            = link_to '/auth/slack', class: 'strong button secondary hollow' do
+              = fa_icon 'slack', text: 'Sign in using Slack'
