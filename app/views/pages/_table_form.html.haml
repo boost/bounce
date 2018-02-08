@@ -10,8 +10,8 @@
 
           .tennis-table__side__players
             - game.winner.players.each do |player|
-              = link_to remove_winner_games_path(player), remote: true, method: :post, title: player.first_name do
-                = image_tag player.image_url, title: player.first_name
+              = link_to remove_winner_games_path(player), remote: true, method: :post, title: player.nickname do
+                = image_tag player.image_url, title: player.nickname
 
       .columns.align-self-middle
         .tennis-table__side#tennis-table-losing-side{ 'data-player-count': 0 }
@@ -22,8 +22,8 @@
 
           .tennis-table__side__players
             - game.loser.players.each do |player|
-              = link_to remove_loser_games_path(player), remote: true, method: :post, title: player.first_name do
-                = image_tag player.image_url, title: player.first_name
+              = link_to remove_loser_games_path(player), remote: true, method: :post, title: player.nickname do
+                = image_tag player.image_url, title: player.nickname
     .row
       .column
         .tennis-table__action.text-center
