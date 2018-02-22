@@ -3,5 +3,5 @@
 # end
 
 Slack.configure do |config|
-  config.token = 'xoxb-311713419025-5kX55vgliDcAvS2vqnre2xlD'
+  config.token = ENV['SLACK_BOT_TOKEN']
 end
