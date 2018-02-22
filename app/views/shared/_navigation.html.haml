@@ -1,8 +1,9 @@
 %nav.clearfix.nav
   .row.align-middle.small-unstack
     .columns
-      %h4
-        = link_to t('app.title'), root_path, class: 'logo'
+      %h4.logo
+        = image_tag('ping-pong.png')
+        = link_to t('app.title'), root_path
     .columns
       %ul.menu.align-right
         - if current_player
