@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/auth/slack/callback', to: 'sessions#create'
   delete '/sign_out', to: 'sessions#destroy', as: :sign_out
 
+  # Slack
+  post '/slack/receive', to: 'slack#receive'
+
   resources :games do
     post '/add_winner/:id', to: 'games#add_winner', as: :add_winner, on: :collection
     post '/add_loser/:id', to: 'games#add_loser', as: :add_loser, on: :collection
