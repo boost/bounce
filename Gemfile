@@ -25,6 +25,12 @@ gem 'jquery-rails'
 gem 'omniauth'
 gem 'omniauth-slack'
 
+# Integrations
+gem 'slack-ruby-client'
+gem 'eventmachine'
+gem 'faye-websocket'
+gem 'giphy'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

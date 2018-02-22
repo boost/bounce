@@ -7,6 +7,8 @@
       %ul.menu.align-right
         - if current_player
           %li
+            %a= "Signed in as #{current_player.first_name}"
+          %li
             = link_to 'Sign out', sign_out_path, method: :delete, class: 'strong button secondary hollow', id: 'sign-out-link'
         - else
           %li

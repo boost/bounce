@@ -4,4 +4,4 @@
     %span.subheader= "#{time_ago_in_words(game.created_at)} ago"
   %td
     .text-right
-      = link_to 'Delete', game, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button small alert'
+      = game.confirmed? ? fa_icon('check-circle', title: 'Confirmed') : fa_icon('times-circle', title: 'Unconfirmed')

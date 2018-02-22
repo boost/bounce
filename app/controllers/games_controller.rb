@@ -6,6 +6,7 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
+      NotifyLoserService.new(@game).call
       reset_session
       redirect_to root_path
     end

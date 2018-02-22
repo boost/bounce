@@ -5,6 +5,10 @@ class Game < ApplicationRecord
   accepts_nested_attributes_for :winner
   accepts_nested_attributes_for :loser
 
+  after_initialize do
+    self.confirmed = false unless persisted?
+  end
+
   def winner_attributes=(value)
     teams = Team.by_player_ids(value[:player_ids].split(' '))
 
