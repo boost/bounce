@@ -3,6 +3,7 @@
   %meta{content: 'width=device-width, initial-scale=1.0', name: 'viewport'}/
   %title= content_for?(:title) ? yield(:title) : t('app.title')
 
+  = favicon_link_tag asset_path('favicon.ico'), rel: 'icon', type: 'image/x-icon'
   = stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track': 'reload'
   = javascript_include_tag  'application', 'data-turbolinks-track': 'reload'
   = csrf_meta_tags
