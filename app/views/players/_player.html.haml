@@ -1,5 +1,6 @@
 - path = add_winner_games_path(player)
 - path = add_loser_games_path(player) unless winner
 
-= link_to path, remote: true, method: :post, title: player.nickname do
+= link_to path, remote: true, method: :post, title: player.nickname, class: 'player-thumbnail' do
   = image_tag player.image_url, alt: player.nickname, title: player.nickname
+  = player.nickname
