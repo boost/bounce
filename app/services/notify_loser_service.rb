@@ -27,7 +27,7 @@ class NotifyLoserService
     options = {
       channel: "##{ENV['SLACK_CHANNEL']}",
       as_user: true,
-      text: "#{losers}, team #{winners} said they beat you at Ping Pong!",
+      text: "#{losers}, #{winners} said they beat you at Ping Pong!",
       attachments: attachments.to_json
     }
 
