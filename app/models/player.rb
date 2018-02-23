@@ -23,16 +23,10 @@ class Player < ApplicationRecord
       player.nickname = auth_hash['info']['nickname']
       player.first_name = auth_hash['info']['first_name']
       player.last_name = auth_hash['info']['last_name']
-      player.image_url = auth_hash['info']['image'] || generate_image_url(player.nickname)
+      player.image_url = auth_hash['info']['image'] || "https://api.adorable.io/avatars/285/#{player.nickname}.png"
       player
     else
       Player.new
     end
-  end
-
-  private
-
-  def generate_image_url(nickname)
-    "https://api.adorable.io/avatars/285/#{nickname}.png"
   end
 end

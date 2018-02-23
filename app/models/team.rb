@@ -10,6 +10,6 @@ class Team < ApplicationRecord
   scope :by_player_ids, ->(ids) { joins(:players).where(players: { id: ids }).group(:id).having('count(1) = ?', ids.count) }
 
   def player_names
-    players.map(&:first_name).join(' & ')
+    players.map(&:nickname).join(' & ')
   end
 end
