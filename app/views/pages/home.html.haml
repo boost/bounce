@@ -1,4 +1,6 @@
 - if current_player
+  = render partial: 'pages/error', locals: { game: @game }
+
   .game-builder
     .row.medium-unstack
       .columns.medium-2
@@ -9,7 +11,7 @@
 
       .columns
         .table-form
-          = render partial: 'table_form', locals: { game: @game }
+          = render partial: 'pages/table_form', locals: { game: @game }
                   
       .columns.medium-2
         .players#losing-players

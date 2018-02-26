@@ -2,6 +2,10 @@ class GamesController < ApplicationController
   before_action :find_player, only: [:add_winner, :add_loser, :remove_winner, :remove_loser]
   before_action :set_game, only: [:add_winner, :add_loser, :remove_winner, :remove_loser]
 
+  def index
+    redirect_to root_path
+  end
+
   def create
     @game = Game.new(game_params)
 
@@ -9,6 +13,9 @@ class GamesController < ApplicationController
       NotifyLoserService.new(@game).call
       reset_session
       redirect_to root_path
+    else
+      @players = Player.all.reject { |p| [*session[:winner_ids], *session[:loser_ids]].include?(p.id) }
+      render 'pages/home'
     end
   end
 

@@ -1,0 +1,8 @@
+- if game.errors.any?
+  .game-errors
+    .row.medium-unstack
+      .column
+        .callout.alert
+          %ul.no-bullet
+            - game.errors.messages.each do |key, val|
+              %li= "#{key.to_s.split('.').first.capitalize} #{val.first}"

@@ -7,7 +7,7 @@ class Team < ApplicationRecord
   has_many :won_games, class_name: 'Game', foreign_key: 'winner_id'
   has_many :lost_games, class_name: 'Game', foreign_key: 'loser_id'
 
-  scope :by_player_ids, ->(ids) { joins(:players).where(players: { id: ids }).group(:id).having('count(1) = ?', ids.count) }
+  validates_presence_of :players
 
   def player_names
     players.map(&:nickname).join(' & ')
