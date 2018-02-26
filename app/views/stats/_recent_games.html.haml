@@ -1,8 +1,6 @@
 .recent-games
-  .row
-    .column
-      %h4 Recent games
-      
-      %table
-        %tbody
-          = render partial: 'games/game', collection: Game.limit(10).order(created_at: :desc)
+  %h4 Recent games
+  
+  %table
+    %tbody
+      = render partial: 'games/game', collection: Game.recent_games(confirmed: true)

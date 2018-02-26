@@ -12,6 +12,8 @@ class Game < ApplicationRecord
     self.confirmed = false unless persisted?
   end
 
+  scope :recent_games, ->(confirmed: true) { where(confirmed: confirmed).limit(10).order(created_at: :desc) }
+
   def winner_attributes=(value)
     teams = lookup_team(value[:player_ids].split(' '))
 
