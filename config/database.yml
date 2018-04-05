@@ -19,7 +19,7 @@ default: &default
 
 development:
   <<: *default
-  database: bounce_development
+  url: mysql2://boost:Vapour12@159.89.193.189/bounce_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180208221625) do
 
-  create_table "games", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "games", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "winner_id"
     t.bigint "loser_id"
     t.datetime "created_at", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180208221625) do
     t.index ["winner_id"], name: "index_games_on_winner_id"
   end
 
-  create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "provider", null: false
     t.string "uid", null: false
     t.string "name"
@@ -39,14 +39,14 @@ ActiveRecord::Schema.define(version: 20180208221625) do
     t.index ["uid"], name: "index_players_on_uid"
   end
 
-  create_table "players_teams", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "players_teams", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "team_id", null: false
     t.bigint "player_id", null: false
     t.index ["player_id", "team_id"], name: "index_players_teams_on_player_id_and_team_id"
     t.index ["team_id", "player_id"], name: "index_players_teams_on_team_id_and_player_id"
   end
 
-  create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

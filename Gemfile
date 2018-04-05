@@ -31,6 +31,9 @@ gem 'eventmachine'
 gem 'faye-websocket'
 gem 'giphy'
 
+# Rating system
+gem 'elo_rating'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
