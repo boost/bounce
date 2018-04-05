@@ -9,15 +9,8 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
 #
-default: &default
+development:
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: <%= ENV['BOUNCE_DATABASE_PASSWORD'] %>
-  host: <%= ENV['BOUNCE_DATABASE_HOST'] %>
-  port: <%= ENV['BOUNCE_DATABASE_PORT'] %>
-
-development:
-  <<: *default
-  database: bounce_development
+  url: <%= ENV['BOUNCE_DATABASE_URL'] %>
