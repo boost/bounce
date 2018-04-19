@@ -20,6 +20,7 @@ gem 'font-awesome-rails'
 gem 'foundation-rails'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'webpacker'
 
 # Authentication
 gem 'omniauth'
