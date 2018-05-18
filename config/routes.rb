@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root 'pages#index'
 
   # Authentication
   get '/auth/slack/callback', to: 'sessions#create'
@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   # Slack
   post '/slack/receive', to: 'slack#receive'
 
+  # Players
+  namespace :api do
+    resources :players
+  end
+
+  # Games
   resources :games do
     post '/add_winner/:id', to: 'games#add_winner', as: :add_winner, on: :collection
     post '/add_loser/:id', to: 'games#add_loser', as: :add_loser, on: :collection

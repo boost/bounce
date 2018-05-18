@@ -3,9 +3,9 @@ class Team < ApplicationRecord
   # validates :name,      presence: true
 
   # Relationships
-  has_and_belongs_to_many :players
-  has_many :won_games, class_name: 'Game', foreign_key: 'winner_id'
-  has_many :lost_games, class_name: 'Game', foreign_key: 'loser_id'
+  has_and_belongs_to_many   :players
+  has_many                  :won_games,  class_name: 'Game', foreign_key: 'winner_id'
+  has_many                  :lost_games, class_name: 'Game', foreign_key: 'loser_id'
 
   validates_presence_of :players
 

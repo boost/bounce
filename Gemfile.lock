@@ -79,6 +79,8 @@ GEM
       faraday (~> 0.9)
       faraday_middleware (>= 0.9.1, < 1.0)
       oj (>= 2.0, < 4.0)
+    fast_jsonapi (1.1.1)
+      activesupport (>= 4.2)
     faye-websocket (0.10.7)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
@@ -303,6 +305,7 @@ DEPENDENCIES
   capybara
   eventmachine
   factory_bot_rails
+  fast_jsonapi
   faye-websocket
   font-awesome-rails
   foundation-rails

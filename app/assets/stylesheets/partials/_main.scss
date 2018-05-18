@@ -1,5 +1,4 @@
 .nav {
-  padding: 1rem 0;
   border-bottom: 1px solid $gallery;
 
   .logo {
@@ -7,4 +6,8 @@
       width: 64px;
     }
   }
+}
+
+.container {
+  margin-top: 2rem;
 }

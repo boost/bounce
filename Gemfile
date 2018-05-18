@@ -32,6 +32,8 @@ gem 'eventmachine'
 gem 'faye-websocket'
 gem 'giphy'
 
+gem 'fast_jsonapi'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,10 +1,10 @@
 %nav.clearfix.nav
-  .row.align-middle.small-unstack
-    .columns
+  .grid-x.grid-padding-x.grid-padding-y
+    .cell.small-6
       %h4.logo
         = image_tag('ping-pong.png')
         = link_to t('app.title'), root_path
-    .columns
+    .cell.auto
       %ul.menu.align-right
         - if current_player
           %li

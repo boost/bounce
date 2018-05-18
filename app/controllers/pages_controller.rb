@@ -11,4 +11,8 @@ class PagesController < ApplicationController
     session[:winner_ids] = []
     session[:loser_ids] = []
   end
+
+  def index
+    @players = Player.all
+  end
 end

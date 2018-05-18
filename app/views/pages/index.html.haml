@@ -1,0 +1,12 @@
+.grid-x.grid-x-padding
+  .cell.auto
+    
+    #players.players-container{ data: { players: @players.to_json(include: [:teams]) } }
+      .media-object.player{ 'v-for': '(player, index) in players' }
+        .media-object-section
+          .thumbnail
+            %img{ ':src': 'player.image_url' }
+        .media-object-section
+          %h5 {{ player.nickname }}
+
+= javascript_pack_tag 'players/index_via_instance'
