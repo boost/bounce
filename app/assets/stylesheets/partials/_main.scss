@@ -11,3 +11,7 @@
 .container {
   margin-top: 2rem;
 }
+
+[v-cloak] {
+  display: none;
+}
