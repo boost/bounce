@@ -1,0 +1,6 @@
+#players
+  .player{ 'v-for': '(player, index) in players' }
+    %p {{ player.attributes.nickname }}
+    %img{ ':src': 'player.attributes.image_url' }
+
+= javascript_pack_tag 'players/demo'
