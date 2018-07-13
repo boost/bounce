@@ -1,9 +1,11 @@
+- json_data = { players: @players.to_json(except: [:created_at, :updated_at], include: [:game_count]) }
+
 .grid-x.grid-x-padding
-  .cell.game
+  .cell.game{ 'v-cloak': '', data: json_data }
     .grid-x.grid-padding-x.grid-padding-y
       .cell.medium-4
         .players
-          %player{ 'v-for': '(player, index) in players', ':index': 'index', ':player': 'player', ':key': 'player.id' }
+          %players{ ':players': 'players' }
       .cell.medium-8
         %tennis-table{ ':winners': 'winners', ':losers': 'losers' }
 

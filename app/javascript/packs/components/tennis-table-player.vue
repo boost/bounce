@@ -1,5 +1,5 @@
 <template>
-  <div class="player-card" v-if="player.show">
+  <div class="player-card">
     <div class="grid-x align-middle">
       <div class="cell shrink">
         <img :src="player.image_url" />
@@ -13,9 +13,11 @@
         </div>
       </div>
       <div class="cell shrink">
-        <div class="player-card__actions">
-          <button class="button tiny secondary hollow" @click="addToWinners(player)">Add to winners</button>
-          <button class="button tiny secondary hollow" @click="addToLosers(player)">Add to losers</button>
+        <div class="player-card__actions" v-if="winner">
+          <button class="button tiny secondary hollow" @click="removeFromWinners(index)">Remove</button>
+        </div>
+        <div class="player-card__actions" v-else>
+          <button class="button tiny secondary hollow" @click="removeFromLosers(index)">Remove</button>
         </div>
       </div>
     </div>
@@ -26,13 +28,13 @@
 import { EventBus } from '../buses/event-bus'
 
 export default {
-  props: ['player', 'index'],
+  props: ['player', 'index', 'table', 'winner'],
   methods: {
-    addToWinners (player) {
-      EventBus.$emit('add-to-winners', player)
+    removeFromWinners (index) {
+      EventBus.$emit('remove-from-winners', index)
     },
-    addToLosers (player) {
-      EventBus.$emit('add-to-losers', player)
+    removeFromLosers (index) {
+      EventBus.$emit('remove-from-losers', index)
     }
   }
 }

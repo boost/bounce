@@ -1,8 +1,10 @@
 import Vue from 'vue/dist/vue.esm'
 import VueResource from 'vue-resource'
 
+import { EventBus } from './buses/event-bus'
+
+import Players from './components/players.vue'
 import TennisTable from './components/tennis-table.vue'
-import Player from './components/player.vue'
 
 Vue.use(VueResource)
 
@@ -10,43 +12,58 @@ document.addEventListener('DOMContentLoaded', () => {
   const element = document.querySelector('.game')
 
   if (element !== null) {
+    let players = JSON.parse(element.dataset.players)
+
+    if (players !== undefined) {
+      players.forEach(function (player) {
+        player.show = true
+      })
+    }
+
     new Vue({
       el: element,
       data () {
         return {
-          players: [],
+          players: players,
           winners: [],
           losers: []
         }
       },
       components: {
-        Player,
+        Players,
         TennisTable
       },
       methods: {
-        addWinner (player, index) {
+        addToWinners (player) {
           if (this.winners.length < 2) {
             this.winners.push(player)
-            this.players.splice(index, 1)
+            player.show = false
           } else {
-            alert('You can only add 2 winners')
+            alert('Only 2 players can win')
           }
         },
-        addLoser (player, index) {
+        addToLosers (player) {
           if (this.losers.length < 2) {
             this.losers.push(player)
-            this.players.splice(index, 1)
+            player.show = false
           } else {
-            alert('You can only add 2 losers')
+            alert('Only 2 players can lose')
           }
+        },
+        removeFromWinners (index) {
+          this.winners[index].show = true
+          this.winners.splice(index, 1)
+        },
+        removeFromLosers (index) {
+          this.losers[index].show = true
+          this.losers.splice(index, 1)
         }
       },
-      created () {
-        this.$http.get('/api/players').then(response => {
-          this.players = response.body.data
-        }, response => {
-          alert(response)
-        })
+      mounted () {
+        EventBus.$on('add-to-winners', this.addToWinners)
+        EventBus.$on('add-to-losers', this.addToLosers)
+        EventBus.$on('remove-from-winners', this.removeFromWinners)
+        EventBus.$on('remove-from-losers', this.removeFromLosers)
       }
     })
   }

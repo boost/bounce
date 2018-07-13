@@ -9,6 +9,15 @@ class Player < ApplicationRecord
   # TODO: Determine the dependent: :destroy
   has_and_belongs_to_many :teams
 
+  def serializable_hash(_options = {})
+    {
+      id: id.to_s,
+      nickname: nickname,
+      image_url: image_url,
+      game_count: game_count
+    }
+  end
+
   def game_count
     (won_games + lost_games).count
   end
