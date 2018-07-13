@@ -8,6 +8,9 @@
         <div class="player-card__info">
           <strong>{{ player.attributes.nickname }}</strong>
         </div>
+        <div class="player-card__stats">
+          <span>Games: {{ player.attributes.game_count }}</span>
+        </div>
       </div>
       <div class="cell shrink">
         <div class="player-card__actions" v-if="!table">

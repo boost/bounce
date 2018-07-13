@@ -29,4 +29,16 @@ class Player < ApplicationRecord
       Player.new
     end
   end
+
+  def game_count
+    (won_games + lost_games).count
+  end
+
+  def won_games
+    teams.map(&:won_games).flatten
+  end
+
+  def lost_games
+    teams.map(&:lost_games).flatten
+  end
 end

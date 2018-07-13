@@ -2,6 +2,10 @@
   margin-bottom: 1rem;
   border: 1px solid $gallery;
 
+  p {
+    margin: 0;
+  }
+
   img {
     width: 3rem;
     height: 3rem;
@@ -21,8 +25,13 @@
   }
 
   @include element('info') {
-    padding: .5rem;
     text-align: left;
+  }
+
+  @include element('stats') {
+    text-align: left;
+    font-size: .9rem;
+    color: $mine-shaft;
   }
 
   @include element('actions') {
