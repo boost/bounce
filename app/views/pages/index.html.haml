@@ -1,3 +1,10 @@
 .grid-x.grid-x-padding
-  .cell
-    = render 'pages/players/demo'
+  .cell.game
+    .grid-x.grid-padding-x.grid-padding-y
+      .cell.medium-4
+        .players
+          %player{ 'v-for': '(player, index) in players', ':index': 'index', ':player': 'player', ':key': 'player.id' }
+      .cell.medium-8
+        %tennis-table{ ':winners': 'winners', ':losers': 'losers' }
+
+= javascript_pack_tag 'game'

@@ -1,32 +1,10 @@
 .tennis-table {
-  img {
-    width: 32px;
-    margin-bottom: .5rem;
-  }
-
+  border: 1px solid $gallery;
+  padding: 1rem;
+  background: $white;
+  
   @include element('side') {
-    padding: 5rem 0;
+    padding: 6rem 1rem;
     text-align: center;
-    min-height: 250px;
-    border: 2px solid $gallery;
-
-    a {
-      // color: $white;
-      margin-right: 1rem;
-    }
-
-    .switch {
-      margin-top: 2rem;
-    }
-
-    @include element('players') {
-      ul {
-        min-height: 150px;
-      }
-    }
-  }
-
-  @include element('action') {
-    margin-top: 1rem;
   }
 }

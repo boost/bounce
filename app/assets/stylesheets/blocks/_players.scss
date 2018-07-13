@@ -1,6 +1,5 @@
 .players {
-  img {
-    width: 32px;
-    margin-bottom: .5rem;
-  }
+  border: 1px solid $gallery;
+  padding: 1rem;
+  background: $white;
 }

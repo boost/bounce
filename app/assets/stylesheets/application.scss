@@ -29,10 +29,12 @@
 @import 'partials/main';
 
 // Blocks
-@import 'blocks/tennis-table';
 @import 'blocks/players';
 @import 'blocks/player';
 @import 'blocks/stats';
 @import 'blocks/game-builder';
 @import 'blocks/player-thumbnail';
 @import 'blocks/game-errors';
+
+@import 'blocks/player-card';
+@import 'blocks/tennis-table';

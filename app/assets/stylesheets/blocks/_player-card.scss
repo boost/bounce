@@ -1,0 +1,31 @@
+.player-card {
+  margin-bottom: 1rem;
+  border: 1px solid $gallery;
+
+  img {
+    width: 3rem;
+    height: 3rem;
+    margin: 1rem;
+  }
+
+  button {
+    margin-bottom: 0;
+    margin-top: .5rem;
+    display: block;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    @extend .expanded;
+  }
+
+  @include element('info') {
+    padding: .5rem;
+    text-align: left;
+  }
+
+  @include element('actions') {
+    padding: 1rem;
+  }
+}
