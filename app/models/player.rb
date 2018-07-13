@@ -9,6 +9,22 @@ class Player < ApplicationRecord
   # TODO: Determine the dependent: :destroy
   has_and_belongs_to_many :teams
 
+  def game_count
+    (won_games + lost_games).count
+  end
+
+  def won_games
+    Rails.cache.fetch("player_#{id}_won_games", expires_in: 3.hours) do
+      teams.map(&:won_games).flatten
+    end
+  end
+
+  def lost_games
+    Rails.cache.fetch("player_#{id}_lost_games", expires_in: 3.hours) do
+      teams.map(&:lost_games).flatten
+    end
+  end
+
   # TODO: Move this to commands
   # Creates User from omniauth hash
   #
@@ -28,17 +44,5 @@ class Player < ApplicationRecord
     else
       Player.new
     end
-  end
-
-  def game_count
-    (won_games + lost_games).count
-  end
-
-  def won_games
-    teams.map(&:won_games).flatten
-  end
-
-  def lost_games
-    teams.map(&:lost_games).flatten
   end
 end
